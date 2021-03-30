@@ -1,6 +1,7 @@
 plugins {
-    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.0-M2'
     id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -15,21 +16,10 @@ repositories {
     mavenLocal()
 }
 
-configurations {
-    include.extendsFrom(implementation)
-}
-
 dependencies {
-    include 'org.transparent:lucent:1.0.1'
-    include 'org.transparent:eureka:1.0.0'
-}
-
-jar {
-    from {
-        configurations.include.collect {
-            it.isDirectory() ? it : zipTree(it)
-        }
-    }
+    shadow files("${System.properties['java.home']}/../lib/tools.jar")
+    implementation 'org.transparent:lucent:1.0.1'
+    implementation 'org.transparent:eureka:1.0.0'
 }
 
 task sourceJar(type: Jar) {
@@ -46,4 +36,8 @@ publishing {
             }
         }
     }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = 1.8
 }
