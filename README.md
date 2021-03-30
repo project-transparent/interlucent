@@ -1,2 +1,1 @@
-# interlucent
-Interlucent is a small bridge library that combines Lucent and Eureka's features.
+# **PRETTY UNSTABLE ATM HASN'T BEEN TESTED PROBABLY DON'T USE**
