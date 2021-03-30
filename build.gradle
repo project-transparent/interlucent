@@ -21,18 +21,6 @@ dependencies {
     implementation 'org.transparent:eureka:1.0.0'
 }
 
-task sourceJar(type: Jar) {
-    from sourceSets.main.allJava
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-
-            artifact sourceJar {
-                classifier "sources"
-            }
-        }
-    }
+diamond {
+    autoMavenPublish = true
 }
