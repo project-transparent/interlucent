@@ -1,13 +1,13 @@
 plugins {
-    id 'maven-publish'
-    id 'org.transparent.diamond' version '1.0.0'
+    id 'java'
+    id 'org.transparent.diamond'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 group = 'org.transparent'
-archivesBaseName = 'interlucent'
+archivesBaseName = 'interlucent-example'
 version = '1.0.0'
 
 repositories {
@@ -15,10 +15,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(':')
     implementation 'org.transparent:lucent:1.0.1'
     implementation 'org.transparent:eureka:1.0.0'
-}
-
-diamond {
-    autoMavenPublish = true
 }

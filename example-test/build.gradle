@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+    id 'org.transparent.diamond'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+group = 'org.transparent'
+archivesBaseName = 'interlucent-example-test'
+version = '1.0.0'
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation project(':example')
+    annotationProcessor project(':example')
+}
