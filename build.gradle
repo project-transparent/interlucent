@@ -16,7 +16,6 @@ repositories {
 }
 
 dependencies {
-    compile files("${System.properties['java.home']}/../lib/tools.jar")
     implementation 'org.transparent:lucent:1.0.1'
     implementation 'org.transparent:eureka:1.0.0'
 }
