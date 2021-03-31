@@ -1,5 +1,6 @@
 package org.transparent.interlucent.example;
 
+import com.sun.tools.javac.code.TypeTag;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.JCTree.*;
 import com.sun.tools.javac.tree.TreeMaker;
@@ -29,6 +30,11 @@ public final class ExampleTranslator extends EurekaTranslator {
                         .type(Object.class)
                         .name("field")
                         .value(null)
+                )
+                .add(method()
+                        .mods(PRIVATE_FINAL)
+                        .type(TypeTag.VOID)
+                        .name("method")
                 )
                 .tree();
     }

@@ -23,16 +23,16 @@ public abstract class Injector<T extends JCTree, E extends JCTree> {
             super(tree);
         }
 
-        public Injector<JCClassDecl, JCTree> add(MethodBuilder builder) {
+        public MemberInjector add(MethodBuilder builder) {
             return add(builder.build());
         }
 
-        public Injector<JCClassDecl, JCTree> add(FieldBuilder builder) {
+        public MemberInjector add(FieldBuilder builder) {
             return add(builder.build());
         }
 
         @Override
-        public Injector<JCClassDecl, JCTree> add(JCTree tree) {
+        public MemberInjector add(JCTree tree) {
             this.tree.defs = this.tree.defs
                     .append(tree);
             return this;
@@ -45,7 +45,7 @@ public abstract class Injector<T extends JCTree, E extends JCTree> {
         }
 
         @Override
-        public Injector<JCMethodDecl, JCStatement> add(JCStatement statement) {
+        public StatementInjector add(JCStatement statement) {
             this.tree.body.stats = this.tree.body.stats
                     .append(statement);
             return this;
