@@ -17,12 +17,13 @@ import org.transparent.eureka.impl.builder.statement.ForBuilder;
 import org.transparent.eureka.impl.builder.statement.SwitchBuilder;
 import org.transparent.interlucent.util.Injector;
 import org.transparent.lucent.transform.LucentTranslator;
+import org.transparent.lucent.transform.LucentValidator;
 
 public abstract class EurekaTranslator extends LucentTranslator implements MemberFactory, StatementFactory {
     protected final EurekaFactory factory;
 
-    public EurekaTranslator(Names names, TreeMaker factory) {
-        super(names, factory);
+    public EurekaTranslator(Names names, TreeMaker factory, LucentValidator validator) {
+        super(names, factory, validator);
         this.factory = new EurekaFactory(names, factory);
     }
 
