@@ -65,6 +65,14 @@ public class ClassInjector {
             return this;
         }
 
+        public MethodsInjector addAll(Function<JCMethodDecl, Collection<? extends JCTree>> function) {
+            methods.forEach(method -> function
+                    .apply(method)
+                    .forEach(newTree -> tree.defs = tree.defs
+                            .append(newTree)));
+            return this;
+        }
+
         public JCClassDecl tree() {
             return tree;
         }
@@ -82,6 +90,14 @@ public class ClassInjector {
         public FieldsInjector add(Function<JCVariableDecl, ? extends JCTree> function) {
             fields.forEach(field -> tree.defs = tree.defs
                     .append(function.apply(field)));
+            return this;
+        }
+
+        public FieldsInjector addAll(Function<JCVariableDecl, Collection<? extends JCTree>> function) {
+            fields.forEach(field -> function
+                    .apply(field)
+                    .forEach(newTree -> tree.defs = tree.defs
+                            .append(newTree)));
             return this;
         }
 
