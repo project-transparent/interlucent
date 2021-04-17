@@ -15,7 +15,8 @@ import org.transparent.eureka.impl.builder.MethodBuilder;
 import org.transparent.eureka.impl.builder.statement.ArrayBuilder;
 import org.transparent.eureka.impl.builder.statement.ForBuilder;
 import org.transparent.eureka.impl.builder.statement.SwitchBuilder;
-import org.transparent.interlucent.util.Injector;
+import org.transparent.interlucent.inject.ClassInjector;
+import org.transparent.interlucent.inject.MethodInjector;
 import org.transparent.lucent.transform.LucentTranslator;
 import org.transparent.lucent.transform.LucentValidator;
 
@@ -27,12 +28,12 @@ public abstract class EurekaTranslator extends LucentTranslator implements Membe
         this.factory = new EurekaFactory(names, factory);
     }
 
-    public Injector.MemberInjector inject(JCClassDecl tree) {
-        return new Injector.MemberInjector(tree);
+    public ClassInjector inject(JCClassDecl tree) {
+        return null;
     }
 
-    public Injector.StatementInjector inject(JCMethodDecl tree) {
-        return new Injector.StatementInjector(tree);
+    public MethodInjector inject(JCMethodDecl tree) {
+        return null;
     }
 
     @Override
