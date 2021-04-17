@@ -1,10 +1,8 @@
 package org.transparent.interlucent.example;
 
 import com.sun.tools.javac.code.TypeTag;
-import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.JCTree.*;
 import com.sun.tools.javac.tree.TreeMaker;
-import com.sun.tools.javac.util.List;
 import com.sun.tools.javac.util.Names;
 import org.transparent.interlucent.transform.EurekaTranslator;
 import org.transparent.lucent.transform.LucentValidator;
