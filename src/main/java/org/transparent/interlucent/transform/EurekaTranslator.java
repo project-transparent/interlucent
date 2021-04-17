@@ -29,11 +29,11 @@ public abstract class EurekaTranslator extends LucentTranslator implements Membe
     }
 
     public ClassInjector inject(JCClassDecl tree) {
-        return null;
+        return new ClassInjector(tree);
     }
 
     public MethodInjector inject(JCMethodDecl tree) {
-        return null;
+        return new MethodInjector(tree);
     }
 
     @Override
